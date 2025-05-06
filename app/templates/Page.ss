@@ -97,8 +97,7 @@
 						<h1 class="page-title">About Us</h1>
 
 						<div class="breadcrumb">
-							<a href="#">Home </a> &raquo;
-							<a href="#">About Us</a>
+							$Breadcrumbs
 						</div>
 					</div>
 				</div>
