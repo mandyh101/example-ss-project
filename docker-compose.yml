@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    image: brettt89/silverstripe-web:8.2-apache
+    working_dir: /var/www
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www/html
+    environment:
+      - DOCUMENT_ROOT=/var/www/html/public
+
+  database:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  db-data:
