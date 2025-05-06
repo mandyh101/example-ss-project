@@ -4,11 +4,11 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
-	<meta charset="utf-8" />
-
-	<!-- Page Title -->
-	<title>One Ring Rentals - Home</title>
-
+	 <!-- use base tag to supply the base URL for pages -->
+     <% base_tag %>
+     <!-- use meta tags ss helper to generate meta tags for the page such as title, content, charset etc -->
+     $MetaTags
+     <!-- leave view port meta tag as needed for responsive design -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
