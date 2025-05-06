@@ -1,29 +1,30 @@
-## Overview
+# Example SS project
+My example SS 5 website for learning and practice development with the SS framework.
 
-[![CI](https://github.com/silverstripe/silverstripe-installer/actions/workflows/ci.yml/badge.svg)](https://github.com/silverstripe/silverstripe-installer/actions/workflows/ci.yml)
-[![Silverstripe supported module](https://img.shields.io/badge/silverstripe-supported-0071C4.svg)](https://www.silverstripe.org/software/addons/silverstripe-commercially-supported-module-list/)
+## tech 
+- Silverstripe 5
+- php 8.2
+- mysql 8
+- Docker
 
-Base project folder for a Silverstripe ([http://silverstripe.org](http://silverstripe.org)) installation. Required modules are installed via [http://github.com/silverstripe/recipe-cms](http://github.com/silverstripe/recipe-cms). For information on how to change the dependencies in a recipe, please have a look at [https://github.com/silverstripe/recipe-plugin](https://github.com/silverstripe/recipe-plugin). In addition, installer includes [theme/simple](https://github.com/silverstripe-themes/silverstripe-simple) as a default theme.
 
-## Installation
+## project set up - development
+I am running this project through a docker environement.
+Make sure you have composer installed:
+- https://getcomposer.org/download/
+- https://docs.silverstripe.org/en/5/getting_started/composer/
 
-```sh
-composer create-project silverstripe/installer my-app
-```
+After cloning the project you can build the docker environment:
+- `docker compose up`
+- view project at *http://localhost:8080*
+- you may need to run a dev build to run db and migrations: *http://localhost:8080/dev/build*
 
-See [Getting Started](https://docs.silverstripe.org/en/getting_started/) for more information.
+## shutting down development
+- `docker compose down`
 
-## Bugtracker
 
-Bugs are tracked on github.com ([framework issues](https://github.com/silverstripe/silverstripe-framework/issues),
-[cms issues](https://github.com/silverstripe/silverstripe-cms/issues)).
-Please read our [issue reporting guidelines](https://docs.silverstripe.org/en/contributing/issues_and_bugs/).
 
-## Development and Contribution
-
-If you would like to make changes to the Silverstripe core codebase, we have an extensive [guide to contributing code](https://docs.silverstripe.org/en/contributing/code/).
-
-## Links
+## SS Links
 
  * [Changelogs](https://docs.silverstripe.org/en/changelogs/)
  * [Bugtracker: Framework](https://github.com/silverstripe/silverstripe-framework/issues)
