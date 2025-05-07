@@ -11,4 +11,10 @@ class ArticlePage extends Page
      * @var bool
      */
     private static $can_be_root = false;
+
+    private static $db = [
+        'Date' => 'Date',
+        'Teaser' => 'Text',
+        'Author' => 'Varchar',
+    ];
 }
