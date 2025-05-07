@@ -49,8 +49,12 @@ class ArticlePage extends Page
         $fields->addFieldToTab('Root.Main', TextareaField::create('Author', 'Author of article'), 'Content');
         // Add file upload fields in a new tab called attachments
         $fields->addFieldToTab('Root.Attachments', UploadField::create('Photo'));
-        $fields->addFieldToTab('Root.Attachments', UploadField::create('Brochure')
+
+        // assign the field to a variable here so we can make further updates to it once instantiated
+        $fields->addFieldToTab('Root.Attachments', $brochure = UploadField::create('Brochure')
             ->setDescription('Optional. Upload a travel brochure (PDF format only).'));
+        // use the validator to set the allowed file type for a brochure
+        $brochure->getValidator()->setAllowedExtensions(['pdf']);
 
 
         return $fields;
