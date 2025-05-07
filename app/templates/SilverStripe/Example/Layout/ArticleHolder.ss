@@ -1,19 +1,4 @@
-<div class="parallax colored-bg pattern-bg" data-stellar-background-ratio="0.5">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<h1 class="page-title">Blog Listing 4</h1>
-
-				<ul class="breadcrumb">
-					<li><a href="#">Home </a></li>
-					<li><a href="#">Travel Guides</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- END PAGE TITLE/BREADCRUMB -->
-
+<% include Banner %>
 
 <!-- BEGIN CONTENT WRAPPER -->
 <div class="content">
@@ -29,6 +14,7 @@
 
 
 						<div class="item col-md-6"><!-- Set width to 4 columns for grid view mode only -->
+                            <!--* NOTE: use $AllChildren if child pages are marked to "not show in menu" otherwise only children that are marked to "show in menu will show -->
                             <% loop $Children %>
                             <div class="item col-md-6">
                               <div class="image">
