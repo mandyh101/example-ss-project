@@ -37,7 +37,7 @@ class ArticlePage extends Page
         $fields = parent::getCMSFields();
         $fields->addFieldToTab('Root.Main', DateField::create('Date', 'Date of article'), 'Content');
         $fields->addFieldToTab('Root.Main', TextareaField::create('Teaser', 'Summary of article')
-            ->setDescription('This will be used to display a summary of the article in the list view.'), 'Content');
+            ->setDescription('Optional text that will be used to display a summary of the article in the list view. If not provided, a summary will be taken from the article content.'), 'Content');
         $fields->addFieldToTab('Root.Main', TextareaField::create('Author', 'Author of article'), 'Content');
 
 
