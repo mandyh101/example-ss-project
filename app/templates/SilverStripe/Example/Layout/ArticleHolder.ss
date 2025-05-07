@@ -1,5 +1,4 @@
 <% include Banner %>
-
 <!-- BEGIN CONTENT WRAPPER -->
 <div class="content">
 	<div class="container">
@@ -7,58 +6,30 @@
 
 			<!-- BEGIN MAIN CONTENT -->
 			<div class="main col-sm-8">
-
-
 				<div id="blog-listing" class="list-style clearfix">
 					<div class="row">
-
-
-						<div class="item col-md-6"><!-- Set width to 4 columns for grid view mode only -->
-                            <!--* NOTE: use $AllChildren if child pages are marked to "not show in menu" otherwise only children that are marked to "show in menu will show -->
-                            <% loop $Children %>
-                            <div class="item col-md-6">
-                              <div class="image">
-                                <a href="$Link">
-                                  <span class="btn btn-default">Read More</span>
-                                </a>
-                                <img src="http://placehold.it/766x515" alt="" />
-                              </div> <div class="tag"><i class="fa fa-file-text"></i></div>
-                             <div class="info-blog">
-                               <ul class="top-info">
-                                 <li><i class="fa fa-calendar"></i> July 30, 2014</li>
-                                 <li><i class="fa fa-comments-o"></i> 2</li>
-                                 <li><i class="fa fa-tags"></i> Properties, Prices, best deals</li>
-                               </ul>
-                              <h3><a href="blog-detail.html">$Title</a></h3>
-                              <p>Sed rutrum urna id tellus euismod gravida. Praesent placerat, mauris ac pellentesque fringilla, tortor libero condimen. Aliquam fermem tum nulla felis, sed molestie libero porttitor in.</p>
-                             </div>
-                            </div>
-                            <% end_loop %>
-                        </div>
-
-
+                         <%-- NOTE: use $AllChildren if child pages are marked to "not show in menu" otherwise only children that are marked to "show in menu will show --%>
+                        <% loop $Children %>
+					    <div class="item col-md-6">
+					      <div class="image">
+					        <a href="$Link">
+					          <span class="btn btn-default">Read More</span>
+					        </a>
+					        <img src="http://placehold.it/766x515" alt="" />
+					      </div> <div class="tag"><i class="fa fa-file-text"></i></div>
+					     <div class="info-blog">
+					       <ul class="top-info">
+					         <li><i class="fa fa-calendar"></i> July 30, 2014</li>
+					         <li><i class="fa fa-comments-o"></i> 2</li>
+					         <li><i class="fa fa-tags"></i> Properties, Prices, best deals</li>
+					       </ul>
+					      <h3><a href="$Link">$Title</a></h3>
+					      <p>Sed rutrum urna id tellus euismod gravida. Praesent placerat, mauris ac pellentesque fringilla, tortor libero condimen. Aliquam fermem tum nulla felis, sed molestie libero porttitor in.</p>
+					     </div>
+					    </div>
+					    <% end_loop %>
 					</div>
-
 				</div>
-
-
-				<!-- BEGIN PAGINATION -->
-				<div class="pagination">
-					<ul id="previous">
-						<li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-					</ul>
-					<ul>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-					</ul>
-					<ul id="next">
-						<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-					</ul>
-				</div>
-				<!-- END PAGINATION -->
-
 			</div>
 			<!-- END MAIN CONTENT -->
 
