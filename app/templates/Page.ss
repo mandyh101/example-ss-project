@@ -21,14 +21,6 @@
 	<!-- Google Web Font -->
 	<link href="http://fonts.googleapis.com/css?family=Raleway:300,500,900%7COpen+Sans:400,700,400italic" rel="stylesheet" type="text/css" />
 
-	<!-- Bootstrap CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" />
-
-	<!-- Template CSS -->
-	<link href="css/style.css" rel="stylesheet" />
-
-	<!-- Modernizr -->
-	<script src="javascript/common/modernizr.js"></script>
 </head>
 <body>
 	<!-- BEGIN WRAPPER -->
@@ -192,14 +184,5 @@
 
 	</div>
 	<!-- END WRAPPER -->
-
-	<script type="text/javascript" src="javascript/common/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="javascript/common/bootstrap.min.js"></script>
-	<script type="text/javascript" src="javascript/common/bootstrap-datepicker.js"></script>
-	<script type="text/javascript" src="javascript/common/chosen.min.js"></script>
-	<script type="text/javascript" src="javascript/common/bootstrap-checkbox.js"></script>
-	<script type="text/javascript" src="javascript/common/nice-scroll.js"></script>
-	<script type="text/javascript" src="javascript/common/jquery-browser.js"></script>
-	<script type="text/javascript" src="javascript/scripts.js"></script>
 </body>
 </html>
