@@ -5,19 +5,17 @@
                 <a href="$AbsoluteBaseURL" class="nav-logo"><img src="images/logo.png" alt="One Ring Rentals" /></a>
 
                 <!-- BEGIN MAIN MENU -->
+                <% if $Menu(1) %>
                 <nav class="navbar">
                     <button id="nav-mobile-btn"><i class="fa fa-bars"></i></button>
-
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Find a Rental</a></li>
-                        <li><a href="#">List your rental</a></li>
-                        <li><a href="#">Regions</a></li>
-                        <li><a href="#">Travel Guides</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Regions</a></li>
-                    </ul>
+                        <% loop Menu(1) %>
+                        <li><a class="$LinkingMode" href="$Link">$MenuTitle</a></li>
+                        <% end_loop %>
 
+                    </ul>
                 </nav>
+                <% end_if %>
                 <!-- END MAIN MENU -->
 
             </div>
