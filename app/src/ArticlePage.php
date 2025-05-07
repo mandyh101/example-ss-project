@@ -25,4 +25,16 @@ class ArticlePage extends Page
         'Teaser' => 'Text',
         'Author' => 'Varchar',
     ];
+
+    /**
+     * Returns a field list object of the tabs and fields to make available in the CMS to edit this page type.
+     *
+     * @return FieldList
+     */
+    public function getCMSFields()
+    {
+        $fields = parent::getCMSFields();
+
+        return $fields;
+    }
 }
