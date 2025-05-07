@@ -11,9 +11,13 @@ class ArticlePage extends Page
      * @var bool
      */
     private static $can_be_root = false;
-
-    private static $class_description = 'A class containing a single article content.';
-
+    /**
+     * A description of the class. This is used in the CMS to describe the class.
+     */
+    private static $class_description = 'A page for a single article.';
+    /**
+     * Recommended to define a table name for all name spaced classes
+     */
     private static $table_name = 'Article';
 
     private static $db = [
