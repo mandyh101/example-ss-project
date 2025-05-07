@@ -3,8 +3,11 @@
 namespace SilverStripe\Example;
 
 use Page;
+use SilverStripe\Assets\File;
+use SilverStripe\Assets\Image;
 use SilverStripe\Forms\DateField;
 use SilverStripe\Forms\TextareaField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class ArticlePage extends Page
 {
@@ -28,6 +31,11 @@ class ArticlePage extends Page
         'Author' => 'Varchar',
     ];
 
+    private static $has_one = [
+        'Photo' => Image::class,
+        'Brochure' => File::class
+    ];
+
     /**
      * Returns a field list object of the tabs and fields to make available in the CMS to edit this page type.
      *
@@ -39,6 +47,10 @@ class ArticlePage extends Page
         $fields->addFieldToTab('Root.Main', TextareaField::create('Teaser', 'Summary of article')
             ->setDescription('Optional text that will be used to display a summary of the article in the list view. If not provided, a summary will be taken from the article content.'), 'Content');
         $fields->addFieldToTab('Root.Main', TextareaField::create('Author', 'Author of article'), 'Content');
+        // Add file upload fields in a new tab called attachments
+        $fields->addFieldToTab('Root.Attachments', UploadField::create('Photo'));
+        $fields->addFieldToTab('Root.Attachments', UploadField::create('Brochure')
+            ->setDescription('Optional. Upload a travel brochure (PDF format only).'));
 
 
         return $fields;
