@@ -12,6 +12,10 @@ class ArticlePage extends Page
      */
     private static $can_be_root = false;
 
+    private static $class_description = 'A class containing a single article content.';
+
+    private static $table_name = 'Article';
+
     private static $db = [
         'Date' => 'Date',
         'Teaser' => 'Text',
