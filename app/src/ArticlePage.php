@@ -3,6 +3,10 @@
 namespace SilverStripe\Example;
 
 use Page;
+use SilverStripe\Forms\DateField;
+use SilverStripe\Forms\TextareaField;
+
+use function PHPSTORM_META\type;
 
 class ArticlePage extends Page
 {
@@ -29,11 +33,20 @@ class ArticlePage extends Page
     /**
      * Returns a field list object of the tabs and fields to make available in the CMS to edit this page type.
      *
-     * @return FieldList
      */
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+
+        $fields->addFieldToTab('Root.Main', DateField::create('Date', 'Date of article'), 'Content');
+        $fields->addFieldToTab(
+            'Root.Main',
+            TextareaField::create('Teaser', 'Summary of article')
+                ->setDescription('This is a short summary of the article. It will be displayed on the article list page.'),
+            'Content'
+        );
+        $fields->addFieldToTab('Root.Main', TextareaField::create('Author', 'Author of article'), 'Content');
+
 
         return $fields;
     }
