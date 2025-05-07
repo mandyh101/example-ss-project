@@ -2,6 +2,8 @@
 
 namespace SilverStripe\Example;
 
+use SilverStripe\Example\ArticlePage;
+
 use Page;
 
 class ArticleHolder extends Page
