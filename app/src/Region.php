@@ -66,6 +66,7 @@ class Region extends DataObject
 
     /**
      * Get a thumbnail of the region's photo for display in the grid
+     * NOTE: an alternative to using the getCMSFields() method would be to use the SS syntax: Photo.CMSThumbnail (minus the option of having a no image string returned if no photo exists)
      * @return string
      */
     public function getGridThumbnail()
