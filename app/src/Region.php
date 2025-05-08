@@ -60,6 +60,7 @@ class Region extends DataObject
      */
     private static $summary_fields = [
         'GridThumbnail' => '',
+        'Photo.Filename' => 'Filename of photo',
         'Title' => 'Title of region',
         'Description' => 'Short description'
     ];
