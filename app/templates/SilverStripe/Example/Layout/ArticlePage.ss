@@ -5,9 +5,6 @@
 		<div class="row">
 
             <h1 class="blog-title">$Title</h1>
-            <% if $Author %>
-            <h2 class="blog-subtitle">By $Author</h2>
-            <% end_if %>
 
             <div class="blog-main-image">
                 <!-- option1 - use SS syntax to create an image element in the html  -->
@@ -23,8 +20,10 @@
                 <ul>
                     <li><i class="fa fa-calendar"></i>$Date</li>
                     <li><i class="fa fa-comments-o"></i> 3 Comments</li>
-                    <li><i class="fa fa-tags"></i> Properties, Prices, best deals</li>
-                    $Author
+                    <li>
+                        <i class="fa fa-tags"></i>
+                        <% loop Categories %><a href="#">$Title</a><% if not $IsLast %>, <% end_if %><% end_loop %>
+                    </li>
                 </ul>
 <!-- TODO fix author... -->
                 <div id="post-author"><i class="fa fa-pencil"></i>By $Author</div>
@@ -63,7 +62,7 @@
 
 			<!-- BEGIN SIDEBAR -->
 			<div class="sidebar gray col-sm-4">
-
+<!--
                 <% if Menu(2) %>
 				<h2 class="section-title">Categories</h2>
 				<ul class="categories">
@@ -71,7 +70,7 @@
                     <li><a class="$LinkingMode" href="$Link">$MenuTitle</a></li>
                     <% end_loop %>
 				</ul>
-                <% end_if %>
+                <% end_if %> -->
 
 				<!-- BEGIN ARCHIVES ACCORDION -->
 				<h2 class="section-title">Archives</h2>
