@@ -27,8 +27,10 @@
             </div>
             <% if $Brochure %>
             <div class="row">
-                <div class="col-sm-12"><a class="btn btn-warning btn-block" href="$Brochure.URL"> Download brochure ($Brochure.Extension, $Brochure.Size)</a>
+                <% with $Brochure %>
+                <div class="col-sm-12"><a class="btn btn-warning btn-block" href="$Brochure.URL"> Download brochure ($Extension, $Size)</a>
                 </div>
+                <% end_with %>
             </div>
             <% end_if %>
 
