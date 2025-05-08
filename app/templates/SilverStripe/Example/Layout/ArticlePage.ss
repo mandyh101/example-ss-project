@@ -25,6 +25,12 @@
                     <i class="fa fa-print"></i>
                 </a>
             </div>
+            <% if $Brochure %>
+            <div class="row">
+                <div class="col-sm-12"><a class="btn btn-warning btn-block" href="$Brochure.URL"> Download brochure ($Brochure.Extension, $Brochure.Size)</a>
+                </div>
+            </div>
+            <% end_if %>
 
 
 			<!-- BEGIN SIDEBAR -->
