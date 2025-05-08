@@ -22,6 +22,7 @@ class Region extends DataObject
 
     private static $has_one = [
         'Photo' => Image::class,
+        'RegionPage' => RegionPage::class,
     ];
 
     public function getCMSFields()
