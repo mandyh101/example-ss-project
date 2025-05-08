@@ -15,7 +15,9 @@ Make sure you have composer installed:
 - https://docs.silverstripe.org/en/5/getting_started/composer/
 
 After cloning the project you can build the docker environment:
-- `docker compose up`
+- `docker compose up` builds the docker image on your first time, or starts them up if its not your first rodeo
+<!-- TODO install has not been tested yet -->
+- `docker compose exec web composer install` to install composer packages
 - view project at *http://localhost:8080*
 - you may need to run a dev build to run db and migrations: *http://localhost:8080/dev/build*
 
