@@ -38,6 +38,13 @@ class ArticlePage extends Page
     ];
 
     /**
+     * An article page can have many categories
+     */
+    private static $many_many = [
+        'Categories' => ArticleCategory::class,
+    ];
+
+    /**
      * A list of relationships that this page type owns. We declare images and files here so that they auto publish when we publish the article.
      * @var array
      */

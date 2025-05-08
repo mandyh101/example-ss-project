@@ -20,6 +20,13 @@ class ArticleCategory extends DataObject
         'ArticleHolder' => ArticleHolder::class,
     ];
 
+    /**
+     * Optional but reommended reciprocal relationship to a many many relationship. Allows us to implement features that can get ALL related parent objects for the category e.g. all the articles that have this category.
+     */
+    private static $belongs_many_many = [
+        'Articles' => ArticlePage::class,
+    ];
+
     public function getCMSFields()
     {
         return FieldList::create(
