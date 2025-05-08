@@ -62,6 +62,7 @@ class ArticlePage extends Page
     public function getCategoriesList()
     {
         if ($this->Categories()->exists()) {
+            // invoking column on the realtion will return an array of only the values in the column specified
             return implode(', ', $this->Categories()->column('Title'));
         }
 
