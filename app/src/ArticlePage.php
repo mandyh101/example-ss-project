@@ -6,6 +6,7 @@ use Page;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\DateField;
+use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 
@@ -46,7 +47,7 @@ class ArticlePage extends Page
         $fields->addFieldToTab('Root.Main', DateField::create('Date', 'Date of article'), 'Content');
         $fields->addFieldToTab('Root.Main', TextareaField::create('Teaser', 'Summary of article')
             ->setDescription('Optional text that will be used to display a summary of the article in the list view. If not provided, a summary will be taken from the article content.'), 'Content');
-        $fields->addFieldToTab('Root.Main', TextareaField::create('Author', 'Author of article'), 'Content');
+        $fields->addFieldToTab('Root.Main', TextField::create('Author', 'Author of article'), 'Content');
         // Add file upload fields in a new tab called attachments
         $fields->addFieldToTab('Root.Attachments', $photo = UploadField::create('Photo'));
         // assign the field to a variable here so we can make further updates to it once instantiated
