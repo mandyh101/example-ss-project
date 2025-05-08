@@ -39,6 +39,7 @@ class ArticlePage extends Page
 
     /**
      * An article page can have many categories
+     * In many many relationships, the way to define the 'parent' or the class that gets the many_many vs the belongs_many_many is to typically choose the class that contains the interface e.g. here we will add categories to articles using checkboxes on the article page.
      */
     private static $many_many = [
         'Categories' => ArticleCategory::class,
