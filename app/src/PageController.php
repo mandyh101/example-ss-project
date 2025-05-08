@@ -33,6 +33,7 @@ class PageController extends ContentController
         // See: https://docs.silverstripe.org/en/developer_guides/templates/requirements/
         Requirements::css('css/bootstrap.min.css');
         Requirements::css('css/style.css');
+        Requirements::css('css/style.less');
         Requirements::javascript('javascript/common/modernizr.js');
         Requirements::javascript('javascript/common/jquery-1.11.1.min.js');
         Requirements::javascript('javascript/common/bootstrap.min.js');
