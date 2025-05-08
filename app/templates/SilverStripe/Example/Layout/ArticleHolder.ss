@@ -21,7 +21,7 @@
 					       <ul class="top-info">
 					         <li><i class="fa fa-calendar"></i>$Date.Nice</li>
 					         <li><i class="fa fa-comments-o"></i> 2</li>
-					         <li><i class="fa fa-tags"></i> Properties, Prices, best deals</li>
+					         <li><i class="fa fa-tags"></i>$CategoriesList</li>
 					       </ul>
 					      <h3><a href="$Link">$Title</a></h3>
                           <% if $Teaser %>
@@ -43,13 +43,10 @@
 
 				<h2 class="section-title">Categories</h2>
 				<ul class="categories">
-					<li><a href="#">Business <span>(2)</span></a></li>
-					<li><a href="#">Commercial <span>(1)</span></a></li>
-					<li><a href="#">Land <span>(3)</span></a></li>
-					<li><a href="#">Loans <span>(2)</span></a></li>
-					<li><a href="#">News and Updates <span>(6)</span></a></li>
-					<li><a href="#">Properties for Sale <span>(1)</span></a></li>
-					<li><a href="#">Real Estate <span>(1)</span></a></li>
+                    <% loop Categories %>
+                    <!-- TODO add dynamic count -->
+					<li><a href="#">$Title <span>(2)</span></a></li>
+                    <% end_loop %>
 				</ul>
 
 				<!-- BEGIN ARCHIVES ACCORDION -->
