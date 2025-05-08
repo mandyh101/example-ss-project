@@ -48,13 +48,19 @@ class ArticlePage extends Page
             ->setDescription('Optional text that will be used to display a summary of the article in the list view. If not provided, a summary will be taken from the article content.'), 'Content');
         $fields->addFieldToTab('Root.Main', TextareaField::create('Author', 'Author of article'), 'Content');
         // Add file upload fields in a new tab called attachments
-        $fields->addFieldToTab('Root.Attachments', UploadField::create('Photo'));
-
+        $fields->addFieldToTab('Root.Attachments', $photo = UploadField::create('Photo'));
         // assign the field to a variable here so we can make further updates to it once instantiated
         $fields->addFieldToTab('Root.Attachments', $brochure = UploadField::create('Brochure')
             ->setDescription('Optional. Upload a travel brochure (PDF format only).'));
-        // use the validator to set the allowed file type for a brochure
-        $brochure->getValidator()->setAllowedExtensions(['pdf']);
+
+        $photo
+            ->setFolderName('travel-photos')
+            ->getValidator()->setAllowedExtensions(['jpg', 'jpeg', 'png', 'gif']);
+
+        //add folder destination and allowed file types to brochure
+        $brochure
+            ->setFolderName('travel-brochures')
+            ->getValidator()->setAllowedExtensions(['pdf']);
 
 
         return $fields;
