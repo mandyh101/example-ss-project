@@ -1,12 +1,38 @@
 <% include Banner %>
-
 <!-- BEGIN CONTENT WRAPPER -->
 <div class="content">
 	<div class="container">
 		<div class="row">
 
+            <h1 class="blog-title">$Title</h1>
+            <% if $Author %>
+            <h2 class="blog-subtitle">By $Author</h2>
+            <% end_if %>
+
+            <div class="blog-main-image">
+                <!-- option1 - use SS syntax to create an image element in the html  -->
+                <!-- $Photo.ScaleWidth(750) -->
+                 <!-- option2 - use with logic to scope the image element to the Photo obct, access properties and customise classes on the class attribute -->
+                <% with $Photo.ScaleWidth(750) %>
+                    <img class="my-custom-class" src="$URL" alt="" width="$Width" height="$Height" />
+                <% end_with %>
+                <div class="tag"><i class="fa fa-file-text"></i></div>
+            </div>
+
+            <div class="blog-bottom-info">
+                <ul>
+                    <li><i class="fa fa-calendar"></i>$Date</li>
+                    <li><i class="fa fa-comments-o"></i> 3 Comments</li>
+                    <li><i class="fa fa-tags"></i> Properties, Prices, best deals</li>
+                    $Author
+                </ul>
+<!-- TODO fix author... -->
+                <div id="post-author"><i class="fa fa-pencil"></i>By $Author</div>
+
+            </div>
+
 			<!-- BEGIN MAIN CONTENT -->
-			<div class="main col-sm-8">
+			<div class="post-content">
 
 				$Content
 
