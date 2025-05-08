@@ -1,4 +1,4 @@
-<!--! This is the 'chrome' for all pages - the outer shell -->
+<!-- This is the 'chrome' for all pages - the outer shell -->
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
