@@ -22,7 +22,7 @@
                     <li><i class="fa fa-comments-o"></i> 3 Comments</li>
                     <li>
                         <i class="fa fa-tags"></i>
-                        <% loop Categories %><a href="#">$Title</a><% if not $IsLast %>, <% end_if %><% end_loop %>
+                        $CategoriesList
                     </li>
                 </ul>
 <!-- TODO fix author... -->

@@ -2,6 +2,7 @@
 
 namespace SilverStripe\Example;
 
+use SilverStripe\Forms\CheckboxSetField;
 use Page;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
@@ -55,6 +56,19 @@ class ArticlePage extends Page
     ];
 
     /**
+     * A simple helper method to get a comma separated list of category titles an article belongs to
+     * @return string|null
+     */
+    public function getCategoriesList()
+    {
+        if ($this->Categories()->exists()) {
+            return implode(', ', $this->Categories()->column('Title'));
+        }
+
+        return null;
+    }
+
+    /**
      * Returns a field list object of the tabs and fields to make available in the CMS to edit this page type.
      *
      */
@@ -65,7 +79,8 @@ class ArticlePage extends Page
         $fields->addFieldToTab('Root.Main', TextareaField::create('Teaser', 'Summary of article')
             ->setDescription('Optional text that will be used to display a summary of the article in the list view. If not provided, a summary will be taken from the article content.'), 'Content');
         $fields->addFieldToTab('Root.Main', TextField::create('Author', 'Author of article'), 'Content');
-        // Add file upload fields in a new tab called attachments
+
+        // CMS fields on the Attachments tab
         $fields->addFieldToTab('Root.Attachments', $photo = UploadField::create('Photo'));
         // assign the field to a variable here so we can make further updates to it once instantiated
         $fields->addFieldToTab('Root.Attachments', $brochure = UploadField::create('Brochure')
@@ -80,6 +95,12 @@ class ArticlePage extends Page
             ->setFolderName('travel-brochures')
             ->getValidator()->setAllowedExtensions(['pdf']);
 
+        // CMS fields on the Categories tab
+        $fields->addFieldToTab(('Root.Categories'), CheckboxSetField::create(
+            'Categories',
+            'Selected article categories',
+            $this->Parent->Categories()->map('ID', 'Title') //our list of categories to select from is defiend on the article holder that this article page belongs to. Use map to create an array that maps each category ID to its title so the checkbox field knows to save the ID in the relation but present the title field as the label.
+        ));
 
         return $fields;
     }
