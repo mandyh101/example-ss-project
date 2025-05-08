@@ -54,6 +54,29 @@ class Region extends DataObject
         'Photo',
     ];
 
+    /**
+     * By default only db fields are shown in the grid field.
+     * With summary fields we can add other fields to the grid field (the grid field is on the parent class)
+     */
+    private static $summary_fields = [
+        'GridThumbnail' => '',
+        'Title' => 'Title of region',
+        'Description' => 'Short description'
+    ];
+
+    /**
+     * Get a thumbnail of the region's photo for display in the grid
+     * @return string
+     */
+    public function getGridThumbnail()
+    {
+        if ($this->Photo()->exists()) {
+            return $this->Photo()->ScaleWidth(100);
+        }
+
+        return "(no image)";
+    }
+
     public function getCMSFields()
     {
         // create a simple field list for editing page objects - different to how we get CMS fields for pages
