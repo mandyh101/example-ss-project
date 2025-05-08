@@ -15,6 +15,10 @@ class RegionPage extends Page
         'Regions' => Region::class,
     ];
 
+    private static $owns = [
+        'Regions',
+    ];
+
     public function getCMSFields()
     {
 
@@ -26,5 +30,7 @@ class RegionPage extends Page
             $this->Regions(), // get the data to dispaly via the relationship on this class
             GridFieldConfig_RecordEditor::create() //It creates a object that contains a number of GridFieldComponent objects, which provide various UI tools to the grid which you can add or remove inside the create parenthesis. By default the Record_Editor grid field provides good basic UI for managing data objects.
         ));
+
+        return $fields;
     }
 }
