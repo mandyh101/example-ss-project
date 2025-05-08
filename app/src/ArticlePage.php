@@ -38,6 +38,15 @@ class ArticlePage extends Page
     ];
 
     /**
+     * A list of relationships that this page type owns. We declare images and files here so that they auto publish when we publish the article.
+     * @var array
+     */
+    private static $owns = [
+        'Photo',
+        'Brochure',
+    ];
+
+    /**
      * Returns a field list object of the tabs and fields to make available in the CMS to edit this page type.
      *
      */
