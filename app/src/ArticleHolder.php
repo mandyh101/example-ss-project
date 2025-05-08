@@ -2,9 +2,11 @@
 
 namespace SilverStripe\Example;
 
-use SilverStripe\Example\ArticlePage;
-
 use Page;
+
+use SilverStripe\Example\ArticlePage;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 
 class ArticleHolder extends Page
 {
@@ -19,4 +21,27 @@ class ArticleHolder extends Page
     private static $allowed_children = [
         ArticlePage::class
     ];
+
+    private static $table_name = 'ArticleHolder';
+
+    /**
+     * An artcle holder can have many categories
+     */
+    private static $has_many = [
+        'Categories' => ArticleCategory::class,
+    ];
+
+    public function getCMSFields()
+    {
+        $fields = parent::getCMSFields();
+
+        $fields->addFieldToTab('Root.Categories', GridField::create(
+            'Categories',
+            'Article Categories',
+            $this->Categories(),
+            GridFieldConfig_RecordEditor::create()
+        ));
+
+        return $fields;
+    }
 }
