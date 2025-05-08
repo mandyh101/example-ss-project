@@ -20,6 +20,11 @@ class Region extends DataObject
     private static $extensions = [
         Versioned::class,
     ];
+    /**
+     * Config
+     * This is used to enable versioning on the grid field so we can use features like archive
+     */
+    private static $versioned_gridfield_extensions = true;
 
     /**
      * config
