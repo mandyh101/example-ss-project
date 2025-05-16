@@ -13,6 +13,18 @@ use SilverStripe\Forms\RequiredFields;
 
 class ArticlePageController extends PageController
 {
+    /**
+     * Defines methods that can be called directly on this controller
+     * @var array
+     */
+    private static $allowed_actions = [
+        'CommentForm' => true
+    ];
+    /**
+     * CommentForm is a form that is embedded in the ArticlePage.
+     * It requires a name, email and comment and sends an email to the site admin when submitted.
+     * @return Form
+     */
     public function CommentForm()
     {
         $form = Form::create(
@@ -23,7 +35,7 @@ class ArticlePageController extends PageController
                     ->setAttribute('placeholder', 'Enter your name'),
                 EmailField::create('Email', 'Your email*')
                     ->setAttribute('placeholder', 'email@example.com'),
-                TextareaField::create('Comment', 'Your comment*')
+                TextareaField::create('CommentText', 'Your comment*')
                     ->setAttribute('placeholder', 'Write your comment here')
             ),
             FieldList::create(
@@ -34,12 +46,31 @@ class ArticlePageController extends PageController
             RequiredFields::create(
                 'Name',
                 'Email',
-                'Comment'
+                'CommentText'
             ),
         );
 
         $form->addExtraClass('form-style');
 
         return $form;
+    }
+
+    public function handleComment($data, $form)
+    {
+        //initialise the article comment object as the first operation
+        // - we know we can do this atthis point becasue the form has already passed validation
+        // - ofetn you may want some logic that determines comment creation based on values provided, but keeping it simple for now
+        $comment = ArticleComment::create();
+        $comment->Name = $data['Name'];
+        $comment->Email = $data['Email'];
+        $comment->CommentText = $data['CommentText'];
+        //this line binds the comment back to the Article Page using the has_many relation convention
+        //- 4this->ID refers to the current page ID has has_one fields are always suffixed with ID
+        $comment->ArticlePageID = $this->ID;
+        $comment->write();
+
+        $form->sessionMessage('Comment submitted successfully!', 'good');
+
+        return $this->redirectBack();
     }
 }
