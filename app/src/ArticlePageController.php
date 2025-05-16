@@ -61,12 +61,16 @@ class ArticlePageController extends PageController
         // - we know we can do this atthis point becasue the form has already passed validation
         // - ofetn you may want some logic that determines comment creation based on values provided, but keeping it simple for now
         $comment = ArticleComment::create();
-        $comment->Name = $data['Name'];
-        $comment->Email = $data['Email'];
-        $comment->CommentText = $data['CommentText'];
+        // $comment->Name = $data['Name'];
+        // $comment->Email = $data['Email'];
+        // $comment->CommentText = $data['CommentText'];
         //this line binds the comment back to the Article Page using the has_many relation convention
         //- 4this->ID refers to the current page ID has has_one fields are always suffixed with ID
         $comment->ArticlePageID = $this->ID;
+        // use saveInto instead of explicitly saving each parameter (as commented out above)
+        // - this is a convenience method to use when the form params are named exactly the same as the ArticleComment db fields
+        $form->saveInto($comment);
+        //write is needed to save the comment to the database
         $comment->write();
 
         $form->sessionMessage('Comment submitted successfully!', 'good');
