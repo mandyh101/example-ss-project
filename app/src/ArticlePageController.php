@@ -50,31 +50,72 @@ class ArticlePageController extends PageController
             ),
         );
 
+
         $form->addExtraClass('form-style');
 
-        return $form;
+        // check if we have existing form data in the session
+        $data = $this->getRequest()->getSession()->get("FormData.{$form->getName()}.data");
+        // add return the form pre-populated or empty if no existing data still in session
+        return $data ? $form->loadDataFrom($data) : $form;
     }
 
     public function handleComment($data, $form)
     {
-        //initialise the article comment object as the first operation
+        //* use the form name to store the data in the session
+        // - this is useful if you want to repopulate the form with the data after a failed submission so the user doesn't have to re-enter everything
+        $session = $this->getRequest()->getSession();
+        $session->set("FormData.{$form->getName()}.data", $data);
+
+        //* add some custom vlaidation
+        if ($this->handleCommentFormValidation($data, $form) === false) {
+            return $this->redirectBack();
+        };
+        //*initialise the article comment object as the first operation
         // - we know we can do this atthis point becasue the form has already passed validation
         // - ofetn you may want some logic that determines comment creation based on values provided, but keeping it simple for now
         $comment = ArticleComment::create();
         // $comment->Name = $data['Name'];
         // $comment->Email = $data['Email'];
         // $comment->CommentText = $data['CommentText'];
-        //this line binds the comment back to the Article Page using the has_many relation convention
-        //- 4this->ID refers to the current page ID has has_one fields are always suffixed with ID
+        //*the below line binds the comment back to the Article Page using the has_many relation convention
+        //- $this->ID refers to the current page ID has has_one fields are always suffixed with ID
         $comment->ArticlePageID = $this->ID;
-        // use saveInto instead of explicitly saving each parameter (as commented out above)
+        //* use saveInto instead of explicitly saving each parameter (as commented out above)
         // - this is a convenience method to use when the form params are named exactly the same as the ArticleComment db fields
         $form->saveInto($comment);
-        //write is needed to save the comment to the database
+        //* write is needed to save the comment to the database
         $comment->write();
+
+        // comment is successfully submitted, so we can clear the session data and form
+        $session->clear("FormData.{$form->getName()}.data");
 
         $form->sessionMessage('Comment submitted successfully!', 'good');
 
         return $this->redirectBack();
+    }
+
+    /**
+     * Validates the comment form submission.
+     *
+     * Checks if a submitted comment already exists in the system and if it is longer than 20 characters to prevent duplicate comments.
+     * A session message is set if the comment already exists.
+     *
+     * @param array $data The form data submitted by the user.
+     * @param Form $form The form object used for the submission.
+     * @return bool Returns true if the comment is valid, false otherwise.
+     */
+
+    public function handleCommentFormValidation($data, $form)
+    {
+        $existingComment = $this->Comments()->filter([
+            'CommentText' => $data['CommentText'],
+        ]);
+        // check if commetn exists and is longer than 20 characters to rue out generic messages - seems like a silly check really but go along with it as an example of how to handle form validation
+        if ($existingComment->exists() && strlen($data['CommentText']) > 20) {
+            $form->sessionMessage('You have already submitted this comment.', 'bad'); //TODO this works but the bad is supposed to determine styling but it doesn't seem to work...
+            return false;
+        };
+
+        return true;
     }
 }
