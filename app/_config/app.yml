@@ -17,5 +17,5 @@ SilverStripe\ORM\Connect\MySQLDatabase:
 
 SilverStripe\SiteConfig\SiteConfig:
       extensions:
-        - SilverStripe\Lessons\SiteConfigExtension # Add the SiteConfigExtension to the SiteConfig class
+        - SilverStripe\Example\SiteConfigExtension
 
