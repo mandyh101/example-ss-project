@@ -30,6 +30,12 @@ class Property extends DataObject
         'PrimaryPhoto' => Image::class,
     ];
 
+    private static $searchable_fields = [
+        'Title',
+        'Region.Title',
+        'FeaturedOnHomepage'
+    ];
+
     public function getCMSfields()
     {
         $fields = FieldList::create(TabSet::create('Root'));
