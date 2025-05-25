@@ -8,14 +8,14 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active"id="slide1" style="background: url(http://placehold.it/1920x605) no-repeat left center; background-size: cover;"> <!-- Ready for JS Injection -->
+      <div class="item active"id="slide1" style="background: url(/images/travel-accom-1.jpg) no-repeat left center; background-size: cover;"> <!-- Ready for JS Injection -->
         <div class="carousel-caption">
           <div class="caption sfr slider-title">Breathtaking views</div>
           <div class="caption sfl slider-subtitle">Relaxation in the Bay of Belfalas</div>
           <a href="#" class="caption sfb btn btn-default btn-lg">Learn More</a>
         </div>
       </div>
-      <div class="item" id="slide2" style="background: url(http://placehold.it/1920x605) no-repeat left center; background-size: cover;">
+      <div class="item" id="slide2" style="background: url(/images/travel-accom-2.jpg) no-repeat left center; background-size: cover;">
         <div class="carousel-caption">
           <div class="caption sfr slider-title">The simple life</div>
           <div class="caption sfl slider-subtitle">Lush gardens in Mordor</div>
@@ -120,7 +120,7 @@
                                   <h3>Luxury Apartment with great views</h3>
                                   <span class="location">Upper East Side, New York</span>
                               </a>
-                              <img src="http://placehold.it/760x670" alt="" />
+                              <img src="/images/travel-accom-1.jpg" alt="" />
                           </div>
                           <div class="price">
                               <span>$950</span><p>per night<p>
@@ -137,7 +137,7 @@
                                   <h3>Stunning Villa with 5 bedrooms</h3>
                                   <span class="location">Miami Beach, Florida</span>
                               </a>
-                              <img src="http://placehold.it/760x670" alt="" />
+                              <img src="/images/holiday-home-boat.jpg" alt="" />
                           </div>
                           <div class="price">
                               <span>$1,300</span><p>per night<p>
@@ -154,7 +154,7 @@
                                   <h3>Recent construction with 3 bedrooms</h3>
                                   <span class="location">Park Slope, New York</span>
                               </a>
-                              <img src="http://placehold.it/760x670" alt="" />
+                              <img src="/images/apartment-europe.jpg" alt="" />
                           </div>
                           <div class="price">
                               <span>$560</span><p>per night<p>
@@ -171,7 +171,7 @@
                                   <h3>Modern construction with parking space</h3>
                                   <span class="location">Midtown, New York</span>
                               </a>
-                              <img src="http://placehold.it/760x670" alt="" />
+                              <img src="/images/apartment-1.jpg" alt="" />
                           </div>
                           <div class="price">
                               <span>$85</span><p>per night<p>
@@ -188,7 +188,7 @@
                                   <h3>Single Family Townhouse</h3>
                                   <span class="location">Cobble Hill, New York</span>
                               </a>
-                              <img src="http://placehold.it/760x670" alt="" />
+                              <img src="/images/holiday-home-euro.jpg" alt="" />
                           </div>
                           <div class="price">
                               <span>$840</span><p>per night<p>
@@ -205,7 +205,7 @@
                                   <h3>3 bedroom villa with garage for rent</h3>
                                   <span class="location">Bal Harbour, Florida</span>
                               </a>
-                              <img src="http://placehold.it/760x670" alt="" />
+                              <img src="/images/travel-accom-3.jpg" alt="" />
                           </div>
                           <div class="price">
                               <span>$150</span><p>per night<p>
@@ -219,7 +219,7 @@
 
 
 
-                  <div class="row">
+                  <!-- <div class="row">
                       <div class="col-sm-12">
                           <h1 class="section-title">Popular Regions</h1>
                           <div id="regions">
@@ -264,7 +264,7 @@
 
 
                       </div>
-                  </div>
+                  </div> -->
 
 
 
@@ -310,7 +310,7 @@
                   <!-- BEGIN SIDEBAR ABOUT -->
                   <div class="col-sm-12">
                       <h2 class="section-title">Last minute deals</h2>
-                      <ul class="latest-news">
+                      <!-- <ul class="latest-news">
                       <li class="col-md-12">
                           <div class="image">
                               <a href="blog-detail.html"></a>
@@ -358,9 +358,11 @@
                           </ul>
 
           <h4><a href="blog-detail.html">The city life</a><p>West Beleriand, Mordor</p></h4>
-                      </li></ul>
-                      <p class="center"><a class="btn btn-fullcolor" href="#">More deals</a></p>
-                  </div>
+                      </li>
+                      </ul>
+                      <p class="center"><a class="btn btn-fullcolor" href="#">More deals</a></p> -->
+                      <p>No deals available - check back soon!</p>
+                    </div>
                   <!-- END SIDEBAR ABOUT -->
 
 
@@ -368,7 +370,7 @@
                       <h2 class="section-title">Activity</h2>
                       <ul class="activity">
                           <li class="col-lg-12">
-                              <a href="#"><img src="http://placehold.it/70x70" alt="" /></a>
+                              <a href="#"><img src="/images/apartment-bedrm.jpg" alt="" /></a>
                               <div class="info">
                                   <h5>Sam Minnée reviewed <a href="#">The House With No Windows</a></h4>
                                   <p>Awesome solitary confinement, mate. Spot on. Sweet as.</p>
@@ -376,7 +378,7 @@
                               </div>
                           </li>
                           <li class="col-lg-12">
-                              <a href="#"><img src="http://placehold.it/70x70" alt="" /></a>
+                              <a href="#"><img src="/images/holiday-home-boat.jpg" alt="" /></a>
                               <div class="info">
                                   <h5>Ingo Schoomer asked a question about <a href="#">The Mistake by the Lake</a></h4>
                                   <p>Has this house been unit tested?</p>
