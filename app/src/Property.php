@@ -12,6 +12,8 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\ORM\ArrayLib;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\TabSet;
+use SilverStripe\Versioned\Versioned;
+
 
 class Property extends DataObject
 {
@@ -35,6 +37,48 @@ class Property extends DataObject
         'Region.Title',
         'FeaturedOnHomepage'
     ];
+
+    private static $owns = [
+        'PrimaryPhoto',
+    ];
+
+    private static $extensions = [
+        Versioned::class,
+    ];
+
+    private static $versioned_gridfield_extensions = true;
+
+    /**
+     * Defines the fields that will be used for searching a property in the property model admin. Returns customised search fields instead of returning the default ones if we just use the private static $searchable_fields array.
+     *
+     * @return array
+     *  - filter=> The type of filter that should be used in the search. For a full list of available filters, see framework/src/ORM/Filters. For title, we want a fuzzy match, so we use PartialMatchFilter, and since regions are filtered by ID, we want that to be an ExactMatchFilter
+     * - title => The title of the field that will be displayed in the search form
+     * - field => The type of field that will be used in the search form. This is optional, and if not provided, the default field type will be used based on the filter value type.
+     */
+    public function searchableFields()
+    {
+        return [
+            'Title' => [
+                'filter' => 'PartialMatchFilter',
+                'title' => 'Title',
+                'field' => TextField::class
+            ],
+            'Region.Title' => [
+                'filter' => 'PartialMatchFilter',
+                'title' => 'Region',
+                'field' => DropdownField::create('RegionID')
+                    ->setSource(Region::get()->map('ID', 'Title'))
+                    ->setEmptyString('-- Select a region --')
+            ],
+            'FeaturedOnHomepage' => [
+                'filter' => 'ExactMatchFilter',
+                'title' => 'Featured on homepage'
+                // if you don't add the field element here, the firled type will default to the appropriate
+                // field type for the filter, in this case a yes/no/any for the boolean value
+            ]
+        ];
+    }
 
     public function getCMSfields()
     {
