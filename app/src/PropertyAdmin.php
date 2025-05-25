@@ -18,15 +18,4 @@ class PropertyAdmin extends ModelAdmin
     private static $managed_models = [
         Property::class,
     ];
-
-    /**
-     * Summary fields give control over what fields are displayed in the list view of the model admin.
-     * - data => name of the field in the model admin
-     */
-    private static $summary_fields = [
-        'Title' => 'Title',
-        'Region.Title' => 'Region', //use dot syntax to access properties...
-        'PricePerNight.Nice' => 'Price', // ...or built in SS methods that are available e.g. to get nicely formatted currency
-        'FeaturedOnHomepage.Nice' => 'Featured?' // returns yes or no instead of 1 or 0 / true or false
-    ];
 }
