@@ -85,6 +85,7 @@ class Property extends DataObject
      * - data => name of the field in the model admin
      */
     private static $summary_fields = [
+        'ID' => 'ID', //showing this for my own debugging - not best practice
         'Title' => 'Title',
         'Region.Title' => 'Region', //use dot syntax to access properties...
         'PricePerNight.Nice' => 'Price', // ...or built in SS methods that are available e.g. to get nicely formatted currency

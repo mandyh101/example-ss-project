@@ -111,110 +111,32 @@
 
               <!-- BEGIN MAIN CONTENT -->
               <div class="main col-sm-8">
+                <!-- TODO fix image responsiveness on Mobile -->
                   <h1 class="section-title">Featured Properties</h1>
 
                   <div class="grid-style1 clearfix">
-                      <div class="item col-md-4">
-                          <div class="image">
-                              <a href="properties-detail.html">
-                                  <h3>Luxury Apartment with great views</h3>
-                                  <span class="location">Upper East Side, New York</span>
-                              </a>
-                              <img src="/images/travel-accom-1.jpg" alt="" />
-                          </div>
-                          <div class="price">
-                              <span>$950</span><p>per night<p>
-                          </div>
-                          <ul class="amenities">
-                              <li><i class="icon-bedrooms"></i> 4</li>
-                              <li><i class="icon-bathrooms"></i> 3</li>
-                          </ul>
-                      </div>
-
-                      <div class="item col-md-4">
-                          <div class="image">
-                              <a href="properties-detail.html">
-                                  <h3>Stunning Villa with 5 bedrooms</h3>
-                                  <span class="location">Miami Beach, Florida</span>
-                              </a>
-                              <img src="/images/holiday-home-boat.jpg" alt="" />
-                          </div>
-                          <div class="price">
-                              <span>$1,300</span><p>per night<p>
-                          </div>
-                          <ul class="amenities">
-                              <li><i class="icon-bedrooms"></i> 5</li>
-                              <li><i class="icon-bathrooms"></i> 2</li>
-                          </ul>
-                      </div>
-
-                      <div class="item col-md-4">
-                          <div class="image">
-                              <a href="properties-detail.html">
-                                  <h3>Recent construction with 3 bedrooms</h3>
-                                  <span class="location">Park Slope, New York</span>
-                              </a>
-                              <img src="/images/apartment-europe.jpg" alt="" />
-                          </div>
-                          <div class="price">
-                              <span>$560</span><p>per night<p>
-                          </div>
-                          <ul class="amenities">
-                              <li><i class="icon-bedrooms"></i> 3</li>
-                              <li><i class="icon-bathrooms"></i> 2</li>
-                          </ul>
-                      </div>
-
-                      <div class="item col-md-4">
-                          <div class="image">
-                              <a href="properties-detail.html">
-                                  <h3>Modern construction with parking space</h3>
-                                  <span class="location">Midtown, New York</span>
-                              </a>
-                              <img src="/images/apartment-1.jpg" alt="" />
-                          </div>
-                          <div class="price">
-                              <span>$85</span><p>per night<p>
-                          </div>
-                          <ul class="amenities">
-                              <li><i class="icon-bedrooms"></i> 1</li>
-                              <li><i class="icon-bathrooms"></i> 2</li>
-                          </ul>
-                      </div>
-
-                      <div class="item col-md-4">
-                          <div class="image">
-                              <a href="properties-detail.html">
-                                  <h3>Single Family Townhouse</h3>
-                                  <span class="location">Cobble Hill, New York</span>
-                              </a>
-                              <img src="/images/holiday-home-euro.jpg" alt="" />
-                          </div>
-                          <div class="price">
-                              <span>$840</span><p>per night<p>
-                          </div>
-                          <ul class="amenities">
-                              <li><i class="icon-bedrooms"></i> 2</li>
-                              <li><i class="icon-bathrooms"></i> 2</li>
-                          </ul>
-                      </div>
-
-                      <div class="item col-md-4">
-                          <div class="image">
-                              <a href="properties-detail.html">
-                                  <h3>3 bedroom villa with garage for rent</h3>
-                                  <span class="location">Bal Harbour, Florida</span>
-                              </a>
-                              <img src="/images/travel-accom-3.jpg" alt="" />
-                          </div>
-                          <div class="price">
-                              <span>$150</span><p>per night<p>
-                          </div>
-                          <ul class="amenities">
-                              <li><i class="icon-bedrooms"></i> 3</li>
-                              <li><i class="icon-bathrooms"></i> 2</li>
-                          </ul>
-                      </div>
+                    <% loop $FeaturedProperties %>
+                    <div class="item col-md-4">
+                        <div class="image">
+                            <a href="$Link">
+                                <h3>$Title $ID</h3>
+                                <span class="location">$Region.Title</span>
+                            </a>
+                            <% if $PrimaryPhoto %>
+                            $PrimaryPhoto.Fill(220,194)
+                        <% else %>
+                            <p>No photo available</p>
+                        <% end_if %>
+                        </div>
+                        <div class="price">
+                            <span>$PricePerNight.Nice</span><p>per night<p>
+                        </div>
+                        <ul class="amenities">
+                            <li><i class="icon-bedrooms"></i> $Bedrooms</li>
+                            <li><i class="icon-bathrooms"></i> $Bathrooms</li>
+                        </ul>
+                    </div>
+                    <% end_loop %>
                   </div>
 
 
