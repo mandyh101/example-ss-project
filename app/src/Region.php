@@ -100,4 +100,15 @@ class Region extends DataObject
 
         return $fields;
     }
+
+    /**
+     * Generates a URL link to the region's page using the region's ID.
+     *
+     * @return string The URL to the region's detail page.
+     */
+
+    public function Link()
+    {
+        return $this->RegionPage()->Link('show/' . $this->ID);
+    }
 }
