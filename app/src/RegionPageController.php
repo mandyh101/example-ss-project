@@ -21,7 +21,8 @@ class RegionPageController extends PageController
         }
 
         return [
-            'Region' => $region
+            'Region' => $region,
+            'Title' => $region->Title
         ];
     }
 }
