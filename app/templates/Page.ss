@@ -5,6 +5,8 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
+    $MetaTags(false)
+    <title>One Ring Rentals: $Title</title>
 	 <!-- use base tag to supply the base URL for pages -->
      <% base_tag %>
      <!-- use meta tags ss helper to generate meta tags for the page such as title, content, charset etc -->
