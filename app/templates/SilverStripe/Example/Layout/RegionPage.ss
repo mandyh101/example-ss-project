@@ -22,7 +22,7 @@
 									<h3>
 										<a href="$Link">$Title</a>
 									</h3>
-									<p>$Description</p>
+									<p>$Description.FirstParagraph</p>
 								</div>
 							</div>
                             <% end_loop %>

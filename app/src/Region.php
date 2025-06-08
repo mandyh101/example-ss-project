@@ -7,7 +7,7 @@ use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Versioned\Versioned;
 
@@ -41,7 +41,7 @@ class Region extends DataObject
      */
     private static $db = [
         'Title' => 'Varchar',
-        'Description' => 'Text',
+        'Description' => 'HTMLText',
     ];
 
     /**
@@ -67,7 +67,7 @@ class Region extends DataObject
         'GridThumbnail' => '',
         'Photo.Filename' => 'Filename of photo',
         'Title' => 'Title of region',
-        'Description' => 'Short description'
+        'ShortDescription' => 'Short description'
     ];
 
     /**
@@ -89,7 +89,10 @@ class Region extends DataObject
         // create a simple field list for editing page objects - different to how we get CMS fields for pages
         $fields = FieldList::create(
             TextField::create('Title', 'Region Title'),
-            TextareaField::create('Description', 'Region Description')
+            HtmlEditorField::create(
+                'Description',
+                'Region Description'
+            )
                 ->setDescription('A description of the region.'),
             $uploader = UploadField::create('Photo', 'Region Photo')
         );
@@ -99,6 +102,18 @@ class Region extends DataObject
             ->getValidator()->setAllowedExtensions(['jpg', 'jpeg', 'png', 'gif']);
 
         return $fields;
+    }
+
+    /**
+     * Get a short description of the region by taking the first paragraph of the full description.
+     *
+     * @return string The first paragraph of the description.
+     */
+    public function getShortDescription()
+    {
+        // Split the description into paragraphs with html stripped out and return the first one
+        $paragraphs = preg_split('/\r\n|\r|\n/', strip_tags($this->Description));
+        return $paragraphs[0] ?? '';
     }
 
     /**
